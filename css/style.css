@@ -46,13 +46,10 @@ header {
   button {
     margin: 0 10px;
   }
-  
-  .pokemon__image {
-    width: 150px;
-  }
 
-  .container_pokemon{
-    background-color: red;
+  .container_pokemon{    
+    background-color: rgba(137, 43, 226, 0.658);
+    border-radius: 20px;
     padding: 12px;
     margin: 20px;
   }
@@ -66,14 +63,18 @@ header {
     height: 200px;
     object-fit: contain;
 }
-
+.pokemon__image{
+    width: 100%;
+}
 /* Container para o Input e os Botões */
 .form, .buttons {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-
+.buttons{
+    width: 100%;
+}
 /* Estilo do Input */
 .input__search {
     width: 250px; /* Ajustando o tamanho do input */
@@ -83,7 +84,14 @@ header {
     border-radius: 5px;
     border: 1px solid #ccc;
 }
-
+.input_search {
+    width: 250px; /* Ajustando o tamanho do input */
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
 /* Botões */
 .buttons {
     display: flex;
@@ -114,7 +122,8 @@ header {
     display: none;
 }
 .language-selection {
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+
   }
   
   #language {
@@ -122,4 +131,12 @@ header {
     font-size: 14px;
     margin-left: 10px;
   }
-  
+ 
+@media (max-width: 853px) {
+    .container{
+        flex-wrap: wrap;
+    }
+    .buttons{
+        flex-wrap: wrap;
+    }
+}

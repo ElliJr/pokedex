@@ -9,8 +9,10 @@ const form = document.querySelector('.form');
 const input = document.querySelector('.input__search');
 const buttonPrev = document.querySelector('.btn-prev');
 const buttonNext = document.querySelector('.btn-next');
+const languageSelect = document.getElementById('language');
 
 let searchPokemon = 1;
+let selectedLanguage = languageSelect.value;
 
 // Função para buscar dados do Pokémon
 const fetchPokemon = async (pokemon) => {
@@ -20,11 +22,13 @@ const fetchPokemon = async (pokemon) => {
     const data = await APIResponse.json();
     return data;
   }
+  console.error('Pokémon não encontrado ou erro na API');
+  return null;
 };
 
 // Função para renderizar os dados do Pokémon
 const renderPokemon = async (pokemon) => {
-
+  // Exibir mensagem de carregamento
   pokemonName.innerHTML = 'Loading...';
   pokemonNumber.innerHTML = '';
   pokemonTypes.innerHTML = '';
@@ -46,10 +50,24 @@ const renderPokemon = async (pokemon) => {
     const types = data.types.map((typeInfo) => typeInfo.type.name).join(', ');
     pokemonTypes.innerHTML = `<strong>Tipo(s):</strong> ${types}`;
 
-    // Exibir espécie (consultando o endpoint da espécie)
+    // Exibir espécie com base no idioma
     const speciesResponse = await fetch(data.species.url);
     const speciesData = await speciesResponse.json();
-    pokemonSpecies.innerHTML = `<strong>Espécie:</strong> ${speciesData.genera[0].genus}`;
+
+    // Mapear o código do idioma
+    const languageMap = {
+      pt: 'pt-BR',
+      en: 'en',
+      es: 'es'
+    };
+
+    // Tentar encontrar a espécie no idioma certo
+    const genusInfo = speciesData.genera.find(genus => genus.language.name === languageMap[selectedLanguage]);
+    
+    // Se não encontrar, usar um idioma padrão (Inglês)
+    const genusText = genusInfo ? genusInfo.genus : speciesData.genera.find(genus => genus.language.name === 'en').genus || 'Espécie não encontrada';
+    
+    pokemonSpecies.innerHTML = `<strong>Espécie:</strong> ${genusText}`;
 
     // Exibir primeiros 5 movimentos
     const moves = data.moves.slice(0, 5).map((moveInfo) => moveInfo.move.name).join(', ');
@@ -65,6 +83,17 @@ const renderPokemon = async (pokemon) => {
     pokemonMoves.innerHTML = '';
   }
 };
+
+// Função para mudar o idioma
+const changeLanguage = (language) => {
+  selectedLanguage = language;  // Atualiza o idioma selecionado
+  renderPokemon(searchPokemon);  // Recarrega o Pokémon atual com o novo idioma
+};
+
+// Adicionar evento de mudança de idioma
+languageSelect.addEventListener('change', function () {
+  changeLanguage(this.value);
+});
 
 // Eventos para navegação entre Pokémon e busca
 form.addEventListener('submit', (event) => {
@@ -86,56 +115,3 @@ buttonNext.addEventListener('click', () => {
 
 // Renderizar o Pokémon inicial
 renderPokemon(searchPokemon);
-
-// Função para mudar o idioma e carregar traduções
-document.addEventListener('DOMContentLoaded', function () {
-
- const languageSelect = document.getElementById('language');
-  const inputSearch = document.querySelector('.input__search');
-  const prevButton = document.querySelector('.btn-prev');
-  const nextButton = document.querySelector('.btn-next');
-  const languageLabel = document.querySelector('label[for="language"]');
-
-const translations = {
-  pt: {
-    title: "Pokédex",
-    searchPlaceholder: "Nome ou Número",
-    prevButton: "Anterior <",
-    nextButton: "Próximo >",
-    languageLabel: "Selecione o idioma:"
-  },
-  en: {
-    title: "Pokédex",
-    searchPlaceholder: "Name or Number",
-    prevButton: "Prev <",
-    nextButton: "Next >",
-    languageLabel: "Select Language:"
-  },
-  es: {
-    title: "Pokédex",
-    searchPlaceholder: "Nombre o Número",
-    prevButton: "Anterior <",
-    nextButton: "Siguiente >",
-    languageLabel: "Seleccione el idioma:"
-  }
-};
-
-  // Função para mudar o idioma
-  function changeLanguage(language) {
-    const translation = translations[language];
-
-    document.title = translation.title; // Mudar o título da página
-    inputSearch.placeholder = translation.searchPlaceholder;
-    prevButton.textContent = translation.prevButton;
-    nextButton.textContent = translation.nextButton;
-    languageLabel.textContent = translation.languageLabel;
-  }
-
-  // Adicionar evento de mudança de idioma
-  languageSelect.addEventListener('change', function () {
-    changeLanguage(this.value);
-  });
-
-  // Definir o idioma padrão
-  changeLanguage(languageSelect.value);
-});
