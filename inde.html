@@ -1,36 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="pt-br">
+  <head>
     <link rel="stylesheet" href="css/style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokedex</title>
-</head>
-<body>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="container">
+          <h1 class="title">Pokédex</h1>
+          <form class="form">
+            <input
+              type="search"
+              class="input__search"
+              placeholder="Name or Number"
+              required />
+          </form>
+
+          <div class="language-selection">
+            <label for="language" class="language-label">Selecione o
+              idioma:</label>
+            <select id="language">
+              <option value="pt">Português</option>
+              <option value="en">English</option>
+              <option value="es">Español</option>
+            </select>
+          </div>
+        </div>
+      </nav>
+    </header>
+
     <main>
-        <img src="#" alt="pokemon" class="pokemon__image">
-    
+      <!-- Informações do Pokémon -->
+      <div class="container_pokemon">
         <h1 class="pokemon__data">
           <span class="pokemon__number"></span> -
           <span class="pokemon__name"></span>
-        </h1>
-    
-        <form class="form">
-          <input
-            type="search"
-            class="input__search"
-            placeholder="Name or Number"
-            required
-          />
-        </form>
-    
+        </h1>        
+        <img src="#" alt="pokemon" class="pokemon__image">
+        <div class="pokemon__types"></div>
+        <div class="pokemon__species"></div>
+        <div class="pokemon__moves"></div>
         <div class="buttons">
-          <button class="button btn-prev">Prev &lt;</button>
-          <button class="button btn-next">Next &gt;</button>
+          <button class="button btn-prev">Anterior</button>
+          <button class="button btn-next">Proximo</button>
         </div>
-    
-        <img src="./images/pokedex.png" alt="pokedex" class="pokedex">
-      </main>
-<script defer src="./js/main.js"></script>
-</body>
+      </div>
+    </main>
+
+    <script defer src="./js/main.js"></script>
+  </body>
 </html>

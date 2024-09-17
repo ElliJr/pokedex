@@ -1,27 +1,65 @@
 /* Geral */
 body {
     font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100vh;
     margin: 0;
     background-image: linear-gradient(34deg, blue, white)
 }
 
-/* Main Container */
-main {
+header {
+    background-color: #f8f9fa;
+    padding: 15px 20px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .title {
+    font-size: 24px;
+    margin: 0;
+    display: inline-block;
+  }
+  
+  .language-selection {
+    float: right;
+    display: flex;
+    align-items: center;
+  }
+  
+  .language-label {
+    margin-right: 10px;
+  }
+  
+  .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 70%;
-    max-width: 1200px;
-    background-color: white;
+  }
+  
+  main {
+    text-align: center;
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-}
+  }
+  
+  .buttons {
+    margin: 20px 0;
+  }
+  
+  button {
+    margin: 0 10px;
+  }
+  
+  .pokemon__image {
+    width: 150px;
+  }
 
+  .container_pokemon{
+    background-color: red;
+    padding: 12px;
+    margin: 20px;
+  }
+  .pokedex {
+    margin-top: 20px;
+    width: 300px;
+  }
 /* Estilo da Imagem do Pokémon */
 .pokemon__image {
     width: 200px; /* Reduzido o tamanho da imagem */
@@ -49,6 +87,7 @@ main {
 /* Botões */
 .buttons {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     width: 250px; /* Ajuste do espaço entre os botões */
 }
@@ -74,3 +113,13 @@ main {
 .pokedex {
     display: none;
 }
+.language-selection {
+    margin-bottom: 20px;
+  }
+  
+  #language {
+    padding: 5px;
+    font-size: 14px;
+    margin-left: 10px;
+  }
+  
