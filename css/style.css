@@ -37,6 +37,7 @@ header {
   main {
     text-align: center;
     padding: 20px;
+    display: flex;
   }
   
   .buttons {
@@ -49,6 +50,7 @@ header {
 
   .container_pokemon{    
     background-color: rgba(137, 43, 226, 0.658);
+    width: 400px;
     border-radius: 20px;
     padding: 12px;
     margin: 20px;

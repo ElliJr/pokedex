@@ -4,6 +4,8 @@ const pokemonImage = document.querySelector('.pokemon__image');
 const pokemonTypes = document.querySelector('.pokemon__types');
 const pokemonSpecies = document.querySelector('.pokemon__species');
 const pokemonMoves = document.querySelector('.pokemon__moves');
+const pokemonGames = document.createElement('div'); // Div para exibir os jogos
+pokemonGames.classList.add('pokemon__games'); // Adiciona uma classe ao elemento de jogos
 
 const form = document.querySelector('.form');
 const input = document.querySelector('.input__search');
@@ -13,6 +15,10 @@ const languageSelect = document.getElementById('language');
 
 let searchPokemon = 1;
 let selectedLanguage = languageSelect.value;
+
+// Adicionar a div de jogos ao contêiner do Pokémon
+const containerPokemon = document.querySelector('.container_pokemon');
+containerPokemon.appendChild(pokemonGames);
 
 // Função para buscar dados do Pokémon
 const fetchPokemon = async (pokemon) => {
@@ -34,6 +40,7 @@ const renderPokemon = async (pokemon) => {
   pokemonTypes.innerHTML = '';
   pokemonSpecies.innerHTML = '';
   pokemonMoves.innerHTML = '';
+  pokemonGames.innerHTML = '';
 
   const data = await fetchPokemon(pokemon);
 
@@ -48,7 +55,7 @@ const renderPokemon = async (pokemon) => {
 
     // Exibir tipos
     const types = data.types.map((typeInfo) => typeInfo.type.name).join(', ');
-    pokemonTypes.innerHTML = `<strong>Tipo(s):</strong> ${types}`;
+    pokemonTypes.innerHTML = `<strong>Tipo:</strong> ${types}`;
 
     // Exibir espécie com base no idioma
     const speciesResponse = await fetch(data.species.url);
@@ -73,6 +80,10 @@ const renderPokemon = async (pokemon) => {
     const moves = data.moves.slice(0, 5).map((moveInfo) => moveInfo.move.name).join(', ');
     pokemonMoves.innerHTML = `<strong>Movimentos:</strong> ${moves}`;
 
+    // Exibir jogos
+    const games = data.game_indices.map(gameInfo => gameInfo.version.name).join(', ');
+    pokemonGames.innerHTML = `<strong>Jogos:</strong> ${games}`;
+
   } else {
     // Exibir erro se o Pokémon não for encontrado
     pokemonImage.style.display = 'none';
@@ -81,13 +92,14 @@ const renderPokemon = async (pokemon) => {
     pokemonTypes.innerHTML = '';
     pokemonSpecies.innerHTML = '';
     pokemonMoves.innerHTML = '';
+    pokemonGames.innerHTML = '';
   }
 };
 
 // Função para mudar o idioma
 const changeLanguage = (language) => {
-  selectedLanguage = language;  // Atualiza o idioma selecionado
-  renderPokemon(searchPokemon);  // Recarrega o Pokémon atual com o novo idioma
+  selectedLanguage = language;  
+  renderPokemon(searchPokemon); 
 };
 
 // Adicionar evento de mudança de idioma
@@ -111,6 +123,15 @@ buttonPrev.addEventListener('click', () => {
 buttonNext.addEventListener('click', () => {
   searchPokemon += 1;
   renderPokemon(searchPokemon);
+});
+
+// Função de scroll infinito
+window.addEventListener('scroll', () => {
+  if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 10) {
+    // Carregar o próximo Pokémon quando o usuário chegar ao final da página
+    searchPokemon += 1;
+    renderPokemon(searchPokemon);
+  }
 });
 
 // Renderizar o Pokémon inicial
