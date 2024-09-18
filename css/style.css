@@ -59,6 +59,7 @@ aside {
 .container_pokemon {
   background-image: url("https://i.pinimg.com/originals/e2/84/b1/e284b14af595f046c749aea762b546a6.png");
   background-position: center center;
+  background-repeat: no-repeat no-repeat;
   width: 400px;
   border-radius: 20px;
   padding: 12px;
@@ -119,7 +120,7 @@ aside {
 .pokemon-list {
   background-image: url('pokemon-phone-poke-balls-real.jpg');
   background-repeat: no-repeat no-repeat;
-  background-position: center right;
+  background-position: center right ;
   background-size: 500px;
   background-attachment: fixed;
   padding: 20px;
