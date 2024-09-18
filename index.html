@@ -12,20 +12,15 @@
       <nav>
         <div class="container">
           <h1 class="title">Pokédex</h1>        
-          <h1 class="pokemon__data">
-            <span class="pokemon__number"></span> -
-            <span class="pokemon__name"></span>
-          </h1>        
           <form class="form">
             <input
               type="search"
               class="input__search"
-              placeholder="Name or Number"
+              placeholder="pesquisar por pokemon"
               required />
           </form>
           <div class="language-selection">
-            <label for="language" class="language-label">Selecione o
-              idioma:</label>
+            <label for="language" class="language-label">Selecione o idioma:</label>
             <select id="language">
               <option value="pt">Português</option>
               <option value="en">English</option>
@@ -36,20 +31,32 @@
       </nav>
     </header>
 
-    <main>
-      <!-- Informações do Pokémon -->
-      <div class="container_pokemon">
-        <img src="#" alt="pokemon" class="pokemon__image">
-        <div class="pokemon__types"></div>
-        <div class="pokemon__species"></div>
-        <div class="pokemon__moves"></div>
-      </div>
-      <div class="buttons">
-        <button class="button btn-prev">Prev &lt;</button>
-        <button class="button btn-next">Next &gt;</button>
-      </div>
-    </main>
+    <div class="display">
+      <main>
+        <!-- Informações do Pokémon -->
+        <div class="container_pokemon">
+          <h1 class="pokemon__data">
+            <span class="pokemon__number"></span> -
+            <span class="pokemon__name"></span>
+          </h1>
+          <img src="#" alt="pokemon" class="pokemon__image">
+          <div class="pokemon__types"></div>
+          <div class="pokemon__species"></div>
+          <div class="pokemon__moves"></div>
+          <div class="pokemon__games"></div>
+        </div>
+        <div class="buttons">
+          <button class="button btn-prev">Prev &lt;</button>
+          <button class="button btn-next">Next &gt;</button>
+        </div>
+      </main>
 
+      <!-- Lista de Pokémons com Scroll -->
+      <aside class="pokemon-list">
+        <div class="card_conteiner"></div>
+      </aside>
+    </div>
+    
     <script defer src="./js/main.js"></script>
   </body>
 </html>
