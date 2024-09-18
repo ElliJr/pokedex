@@ -47,20 +47,18 @@ main {
   width: 70%;
   display: flex;
 }
-
+.pokemon__image{
+  width: 100px;
+}
 aside {
   width: 30%;
   max-height: 80vh;
   overflow-y: scroll;
 }
 
-.buttons {
-  margin: 20px 0;
-}
-
-
 .container_pokemon {
-  background-image: linear-gradient(24deg, green, blue);
+  background-image: url("https://i.pinimg.com/originals/e2/84/b1/e284b14af595f046c749aea762b546a6.png");
+  background-position: center center;
   width: 400px;
   border-radius: 20px;
   padding: 12px;
@@ -73,11 +71,6 @@ aside {
   margin-left: 72px;
 }
 /* Container para o Input e os Botões */
-.form, .buttons {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 
 
 /* Estilo do Input */
@@ -91,15 +84,10 @@ aside {
 }
 
 /* Botões */
-.buttons {
-  display: flex;
-  justify-content: space-between;
-  width: 250px;
-}
 
 .button {
   width: 70px;
-  padding: 10px;
+  margin: 12px;
   border: 2px solid #000;
   border-radius: 5px;
   font-size: clamp(8px, 5vw, 1rem);
@@ -107,19 +95,19 @@ aside {
   background-color: #444;
   box-shadow: -2px 3px 0 #222, -4px 6px 0 #000;
 }
-
+.buttons{
+  display: flex;
+  height: 60px;
+  flex-wrap: wrap;
+}
 .card_conteiner {
-  background-image: url('https://wallpapers.com/images/hd/pokemon-phone-poke-balls-real-hpv55jaxqka34q9a.jpg');
-  background-repeat: no-repeat no-repeat;
-  background-position: center right;
-  background-size: 500px;
-  background-attachment: fixed;
   padding: 10px;
   border-radius: 12px;
 }
 
 .card {
   background-color: rgba(127, 255, 212, 0.37);
+  backdrop-filter: blur(8px);
   margin-bottom: 10px;
   padding: 10px;
   text-align: center;
@@ -129,6 +117,11 @@ aside {
 }
 
 .pokemon-list {
+  background-image: url('pokemon-phone-poke-balls-real.jpg');
+  background-repeat: no-repeat no-repeat;
+  background-position: center right;
+  background-size: 500px;
+  background-attachment: fixed;
   padding: 20px;
 }
 
