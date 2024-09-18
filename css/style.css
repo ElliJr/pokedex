@@ -5,7 +5,6 @@
   box-sizing: border-box;
 }
 body {
-  back
   font-family: Arial, sans-serif;
   height: 100vh;
 }
@@ -116,10 +115,11 @@ aside {
   background-size: 500px;
   background-attachment: fixed;
   padding: 10px;
+  border-radius: 12px;
 }
 
 .card {
-  backdrop-filter: blur(7px);
+  background-color: rgba(127, 255, 212, 0.37);
   margin-bottom: 10px;
   padding: 10px;
   text-align: center;
