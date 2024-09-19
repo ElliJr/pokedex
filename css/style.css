@@ -14,7 +14,10 @@ header {
   background-color: #4077ad;
   padding: 15px;
 }
-
+a{
+  text-decoration: none;
+  color: #ccc;
+}
 .title {
   font-size: 24px;
   margin: 0;
@@ -45,7 +48,7 @@ main {
   text-align: center;
   padding: 20px;
   width: 70%;
-  display: flex;
+  
 }
 .pokemon__image{
   width: 100px;
@@ -95,11 +98,14 @@ aside {
   color: white;
   background-color: #444;
   box-shadow: -2px 3px 0 #222, -4px 6px 0 #000;
+  cursor: pointer;
+
 }
 .buttons{
   display: flex;
   height: 60px;
   flex-wrap: wrap;
+  margin-left: 70px;
 }
 .card_conteiner {
   padding: 10px;
@@ -125,6 +131,7 @@ aside {
   background-attachment: fixed;
   padding: 20px;
   margin: 30px;
+  border-radius: 12px;
 }
 
 .card img {
@@ -132,18 +139,25 @@ aside {
   height: 100px;
 }
 
-@media (max-width: 853px) {
+@media (max-width: 850px) {
   .container {
     flex-wrap: wrap;
   }
-
+  main{
+    margin-left: ;
+  }
   .display {
-    flex-direction: column;
+    flex-wrap: wrap;
   }
   .pokemon-list{
     background-position: center left;
     width: 300px;
     justify-content: center;
     align-items: center;
+  }
+}
+@media (max-width: 600px) {
+  .container_pokemon{
+    width: 400px;
   }
 }

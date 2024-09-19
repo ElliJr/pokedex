@@ -11,7 +11,12 @@
     <header>
       <nav>
         <div class="container">
-          <h1 class="title">Pokédex</h1>        
+          <div class="logo">
+            <img src="https://cdn-icons-png.flaticon.com/512/1033/1033032.png" alt="" width="30px">
+            <a href="https://pokedex-three-wine.vercel.app/">
+              <h1 class="title">Pokédex</h1>
+            </a>
+          </div>    
           <form class="form">
             <input
               type="search"
@@ -45,11 +50,11 @@
           <div class="pokemon__moves"></div>
           <div class="pokemon__games"></div>
         </div>
+        <div class="buttons">
+          <button class="button btn-prev">Prev &lt;</button>
+          <button class="button btn-next">Next &gt;</button>
+        </div>
       </main>
-      <div class="buttons">
-        <button class="button btn-prev">Prev &lt;</button>
-        <button class="button btn-next">Next &gt;</button>
-      </div>
       <!-- Lista de Pokémons com Scroll -->
       <aside class="pokemon-list">
         <div class="card_conteiner"></div>
