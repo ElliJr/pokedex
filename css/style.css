@@ -19,7 +19,8 @@ html ::-webkit-scrollbar-track {
 body {
   font-family: Arial, sans-serif;
   height: 100vh;
-  background-color: grey;
+  background-color: #000000;
+  
 }
 
 header {
@@ -79,6 +80,11 @@ aside {
   border-radius: 20px;
   padding: 12px;
   margin: 20px;
+  border: 2px solid #00FFFF; /* Neon azul */
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.75); /* Glow */
+  background-color: rgba(255, 255, 255, 0.1); /* Fundo semi-transparente */
+  color: white; /* Texto branco para contraste */
+  animation: neon-glow 1.5s infinite;
 }
 
 .pokemon__image {
@@ -91,27 +97,39 @@ aside {
 
 /* Estilo do Input */
 .input__search {
-  width: 250px;
+  background-color: #111111;
+  border: 2px solid #00FFFF; /* Neon azul */
+  color: white;
   padding: 10px;
-  font-size: 16px;
-  margin-bottom: 20px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.75);
+  border-radius: 100px;
+  width: 300px;
+  transition: 1s;
+  cursor: pointer;
+  animation: neon-glow 1.5s infinite;
+}
+.input__search:hover{
+  transition: 1s;
+  width: 300px;
 }
 
 /* Botões */
 
-.button {
-  width: 70px;
+button {
+  background-color: #000000;
   margin: 12px;
-  border: 2px solid #000;
-  border-radius: 5px;
-  font-size: clamp(8px, 5vw, 1rem);
-  color: white;
-  background-color: #444;
-  box-shadow: -2px 3px 0 #222, -4px 6px 0 #000;
+  color: #00FF00; /* Neon verde */
+  border: 2px solid #00FF00;
+  padding: 10px 20px;
+  font-size: 16px;
   cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+  transition: 0.3s;
+}
 
+button:hover {
+  box-shadow: 0 0 20px rgba(0, 255, 0, 1);
+  color: #FFFFFF; /* Branco no hover */
 }
 .buttons{
   display: flex;
@@ -144,11 +162,27 @@ aside {
   padding: 20px;
   margin: 30px;
   border-radius: 12px;
+  border: 2px solid #00FFFF; /* Neon azul */
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.75); /* Glow */
+  background-color: rgba(255, 255, 255, 0.1); /* Fundo semi-transparente */
+  color: white; /* Texto branco para contraste */  
 }
 
 .card img {
   width: 100px;
   height: 100px;
+}
+
+@keyframes neon-glow {
+  0% {
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.75);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 1);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.75);
+  }
 }
 
 @media (max-width: 850px) {
