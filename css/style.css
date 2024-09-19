@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Honk:MORF@0..45&family=Kalnia+Glaze:wght@100..700&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montagu+Slab:opsz,wght@16..144,100..700&family=Noto+Sans+JP:wght@100..900&family=Oswald:wght@200..700&family=Platypi:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
 /* Geral */
 * {
   margin: 0;
@@ -24,7 +27,7 @@ body {
 }
 
 header {
-  background-color: #4077ad;
+
   padding: 15px;
 }
 a{
@@ -50,14 +53,23 @@ display: flex;
 
 .language-label {
   margin-right: 10px;
+  width: 30px;
+  border: none;
 }
-
+label{
+  color: white  ;
+}
+h4{
+  color: black;
+}
 .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
+.container_search-bar{
+  display: flex;
+}
 main {
   text-align: center;
   padding: 20px;
@@ -72,7 +84,13 @@ aside {
   max-height: 80vh;
   overflow-y: scroll;
 }
-
+p{
+  color: rgb(248, 245, 245);
+  margin-left: 16px;
+  font-family: "Kanit", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
 .container_pokemon {
   background-image: url("https://i.pinimg.com/originals/e2/84/b1/e284b14af595f046c749aea762b546a6.png");
   background-position: center center;
@@ -102,6 +120,7 @@ aside {
   border: 2px solid #00FFFF; /* Neon azul */
   color: white;
   padding: 10px;
+  margin-left: 50px;
   box-shadow: 0 0 10px rgba(0, 255, 255, 0.75);
   border-radius: 100px;
   width: 300px;
@@ -166,7 +185,8 @@ button:hover {
   border: 2px solid #00FFFF; /* Neon azul */
   box-shadow: 0 0 15px rgba(0, 255, 255, 0.75); /* Glow */
   background-color: rgba(255, 255, 255, 0.1); /* Fundo semi-transparente */
-  color: white; /* Texto branco para contraste */  
+  color: white; /* Texto branco para contraste */ 
+  animation: neon-glow 1.5s infinite; 
 }
 
 .card img {
@@ -200,6 +220,9 @@ button:hover {
     background-position: center left;
     width: 400px;
     margin-left: 100px;
+  }
+  .container_search-bar{
+    flex-wrap: wrap-reverse;
   }
 }
 @media (max-width: 600px) {

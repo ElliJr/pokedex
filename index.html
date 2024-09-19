@@ -18,13 +18,6 @@
               <h1 class="title">Pokédex</h1>
             </a>
           </div>    
-          <form class="form">
-            <input
-              type="search"
-              class="input__search"
-              placeholder="pesquisar por pokemon"
-              required />
-          </form>
           <div class="language-selection">
             <label for="language" class="language-label">Selecione o idioma:</label>
             <select id="language">
@@ -40,17 +33,26 @@
     <div class="display">
       <main>
         <!-- Informações do Pokémon -->
-        <div class="container_pokemon">
-          <h1 class="pokemon__data">
-            <span class="pokemon__number"></span> -
-            <span class="pokemon__name"></span>
-          </h1>
-          <img src="#" alt="pokemon" class="pokemon__image">
-          <div class="pokemon__types"></div>
-          <div class="pokemon__species"></div>
-          <div class="pokemon__moves"></div>
-          <div class="pokemon__games"></div>
-        </div>
+        <div class="container_search-bar">
+          <div class="container_pokemon">
+            <h1 class="pokemon__data">
+              <span class="pokemon__number"></span> -
+              <span class="pokemon__name"></span>
+            </h1>
+            <img src="#" alt="pokemon" class="pokemon__image">
+            <div class="pokemon__types"></div>
+            <div class="pokemon__species"></div>
+            <div class="pokemon__moves"></div>
+            <div class="pokemon__games"></div>
+          </div>
+          <form class="form">
+            <input
+              type="search"
+              class="input__search"
+              placeholder="pesquisar por pokemon"
+              required />
+          </form>
+        </div>      
         <div class="buttons">
           <button class="button btn-prev">Prev &lt;</button>
           <button class="button btn-next">Next &gt;</button>
@@ -58,7 +60,7 @@
       </main>
       <!-- Lista de Pokémons com Scroll -->
       <aside class="pokemon-list">
-        <p id="descriptionText">Escolha um Pokémon para ver detalhes</p>  
+        <h4 id="descriptionText">Escolha um Pokémon para ver detalhes</h4>  
         <div class="card_conteiner"></div>
       </aside>
     </div>
