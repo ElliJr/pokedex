@@ -4,6 +4,18 @@
   padding: 0;
   box-sizing: border-box;
 }
+html ::-webkit-scrollbar {
+  width: 13px;
+}
+
+html ::-webkit-scrollbar-thumb {
+  border-radius: 14px;
+  background: #13973b;
+}
+
+html ::-webkit-scrollbar-track {
+  background: #dacccc;
+}
 body {
   font-family: Arial, sans-serif;
   height: 100vh;
@@ -151,9 +163,8 @@ aside {
   }
   .pokemon-list{
     background-position: center left;
-    width: 300px;
-    justify-content: center;
-    align-items: center;
+    width: 400px;
+    margin-left: 100px;
   }
 }
 @media (max-width: 600px) {
