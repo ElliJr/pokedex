@@ -90,7 +90,7 @@ const renderPokemonList = async () => {
     card.innerHTML = `
       <img src="${data.sprites.front_default}" alt="${data.name}" />
       <p><strong>${data.name}</strong></p>    
-      <p><strong>#${data.id}</strong></p>    
+      <p><strong>#  ${data.id}</strong></p>    
     `;
     card.addEventListener('click', () => {
       renderPokemon(data.id);
