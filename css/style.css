@@ -154,8 +154,7 @@ button:hover {
 .buttons{
   display: flex;
   height: 60px;
-  flex-wrap: wrap;
-  margin-left: 70px;
+  flex-wrap: wrap;  
 }
 .card_conteiner {
   padding: 10px;
@@ -221,34 +220,35 @@ button:hover {
   .container_search-bar{
     flex-wrap: wrap-reverse;
   }
-  .buttons{
-    margin-left: 100px;
-  }
   main{
     margin-left: 70px;
   }
 }
 @media (max-width: 700px) {
   .container_pokemon{
-    width: 200px;
+    width: 400px;
     height: 430px;
     margin-right: 60px;
-    
+
   }
   .pokemon-list{
     background-position: center left;
     width: 400px;
     margin-left: 60px;
   }
-  .container_search-bar{
+  .container_search-bar{    
     flex-wrap: wrap-reverse;
+    position: relative;
+    right: 60px;
   }
-  .buttons{
-    margin-left: 60px;
-    display: flex;
-    flex-direction: row;
+  .input__search{
+    position: relative;
+    right: 30px;
   }
-  main{
-    background-color: red;
+  .pokemon__image{
+    width: 200px;
+    position: relative;
+    right: 20px;
   }
+
 }
